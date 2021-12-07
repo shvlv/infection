@@ -101,14 +101,14 @@ jobs:
           sudo apt-get install -y --no-install-recommends expect
 
       - name: Run the whole set of E2E tests
-        if: runner.os != 'Windows' && matrix.e2e-runner == 'bin/infection'
+        if: runner.os != 'Windows' && matrix.e2e-runner != 'build/infection.phar'
         env:
           TERM: xterm-256color
         run: |
           make test-e2e E2E_PHPUNIT_GROUP=e2e INFECTION=bin/infection
 
       - name: Run the whole set of E2E tests with prefixed PHAR
-        if: runner.os != 'Windows' && matrix.e2e-runner != 'bin/infection' && contains(['8.0', '8.1'], matrix.php-version)
+        if: runner.os != 'Windows' && matrix.e2e-runner == 'build/infection.phar' && (matrix.php-version == '8.0' || matrix.php-version == '8.1')
         env:
           TERM: xterm-256color
         run: |
