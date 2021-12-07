@@ -44,6 +44,7 @@ return [
     'whitelist' => [
         'Composer\*',
         'Safe\*',
+        'PSR\*',
         // PHP 8.0
         'T_NAME_QUALIFIED',
         'T_NAME_FULLY_QUALIFIED',
