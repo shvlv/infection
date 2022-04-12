@@ -144,6 +144,8 @@ class MutationConfigBuilder extends ConfigBuilder
             <<<'PHP'
 <?php
 
+require getcwd() . '/vendor/antecedent/patchwork/Patchwork.php';
+
 if (function_exists('proc_nice')) {
     proc_nice(1);
 }
